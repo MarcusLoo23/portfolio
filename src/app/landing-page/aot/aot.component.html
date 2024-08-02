@@ -1,0 +1,29 @@
+<section>
+  <div class="container">
+    <div class="headline">
+      <h1>Frontend<br />Developer</h1>
+      <h2>Marcus Loosen</h2>
+    </div>
+    @if (!translateService.translated) {
+    <a data-aos="fade-up" data-aos-duration="700" href="#contact"
+      ><button class="btn">Nachricht senden</button></a
+    >
+    } @else {
+    <a data-aos="fade-up" data-aos-duration="700" href="#contact"
+      ><button class="btn">Let's talk</button></a
+    >
+    }
+
+    <div class="scroll-down">
+      <div class="email-link">
+        <a href="mailto:mail@marcus-loosen.de">mail&commat;marcus-loosen.de</a>
+      </div>
+      <div class="scroll-arrow">
+        <div>
+          <img src="assets/icons/arrow_down.png" alt="" />
+        </div>
+        <a href="#aboutMe">Scroll<br />Down</a>
+      </div>
+    </div>
+  </div>
+</section>

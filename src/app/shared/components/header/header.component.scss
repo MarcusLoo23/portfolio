@@ -1,0 +1,140 @@
+@import "../../../../styles.scss";
+
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 50;
+  background-color: #fffcf3;
+  @include d-flex();
+  font-family: "Syne", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+
+  .container {
+    @include d-flex($jc: space-between);
+    width: 90%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px 0;
+    .flag-container {
+      @include d-flex($g: 16px);
+    }
+
+    // .logo {
+    //   cursor: pointer;
+    //   width: 64px;
+    //   height: 64px;
+    // }
+
+    .first-letter-logo {
+      color: #5987ff;
+      font-size: 56px;
+    }
+
+    .pointer {
+      cursor: pointer;
+    }
+
+    .logo {
+      cursor: pointer;
+      // width: 64px;
+      // height: 64px;
+      font-size: 40px;
+      color: #ffffff;
+      padding-bottom: 45x;
+    }
+
+    .flag {
+      cursor: pointer;
+      width: 64px;
+    }
+
+    .menu {
+      cursor: pointer;
+      background-image: url("../../../../assets/icons/burger_menu1.png");
+      background-size: contain;
+      background-position: center;
+      height: 32px;
+      width: 40px;
+    }
+
+    .back-icon {
+      cursor: pointer;
+      filter: brightness(0) saturate(100%) invert(69%) sepia(54%)
+        saturate(7082%) hue-rotate(206deg) brightness(102%) contrast(101%);
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+.change-to-close {
+  animation: change-to-close-icon-animation 0.25s 1 forwards ease-in-out;
+}
+
+.change-to-menu {
+  animation: change-to-menu-icon-animation 0.25s 1 forwards ease-in-out;
+}
+
+.d-none {
+  display: none;
+}
+
+@keyframes change-to-menu-icon-animation {
+  0% {
+    background-image: url("../../../../assets/icons/burger_menu5.png");
+  }
+
+  25% {
+    background-image: url("../../../../assets/icons/burger_menu6.png");
+  }
+
+  50% {
+    background-image: url("../../../../assets/icons/burger_menu7.png");
+  }
+
+  75% {
+    background-image: url("../../../../assets/icons/burger_menu8.png");
+  }
+
+  100% {
+    background-image: url("../../../../assets/icons/burger_menu1.png");
+  }
+}
+
+@keyframes change-to-close-icon-animation {
+  0% {
+    background-image: url("../../../../assets/icons/burger_menu1.png");
+  }
+
+  20% {
+    background-image: url("../../../../assets/icons/burger_menu2.png");
+  }
+
+  40% {
+    background-image: url("../../../../assets/icons/burger_menu3.png");
+  }
+
+  60% {
+    background-image: url("../../../../assets/icons/burger_menu4.png");
+  }
+
+  80% {
+    background-image: url("../../../../assets/icons/burger_menu5.png");
+  }
+
+  100% {
+    background-image: url("../../../../assets/icons/burger_menu5.png");
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    width: 95%;
+  }
+}

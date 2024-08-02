@@ -1,0 +1,157 @@
+@import "../../../../styles.scss";
+
+footer {
+  @include d-flex();
+  background-color: black;
+  padding-bottom: 32px;
+
+  .link {
+    color: #fffcf3;
+    align-self: flex-end;
+    font-family: "Overpass", sans-serif;
+    position: relative;
+
+    &:after {
+      content: "";
+      background-color: #5987ff;
+      display: flex;
+      justify-content: flex-end;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      opacity: 0;
+    }
+
+    &:hover:after {
+      animation: link-animation 0.25s 1 forwards ease-in-out;
+    }
+  }
+}
+
+.link:hover:after {
+  left: 0;
+  right: unset;
+  width: 50%;
+}
+
+.container {
+  @include d-flex($fd: column);
+  width: 90%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 32px;
+
+  > div {
+    @include d-flex($jc: space-between, $ai: flex-start);
+    width: 100%;
+  }
+}
+
+.left {
+  color: white;
+  @include d-flex($fd: column, $ai: flex-start, $g: 16px);
+
+  a {
+    align-self: flex-start;
+  }
+
+  .first-letter-logo {
+    color: #5987ff;
+    font-size: 56px;
+  }
+
+  .logo {
+    cursor: pointer;
+    // width: 64px;
+    // height: 64px;
+    font-size: 40px;
+    color: #ffffff;
+    padding-bottom: 45x;
+  }
+
+  span {
+    color: #fffcf3;
+    font-family: "Overpass", sans-serif;
+    font-size: 23px;
+  }
+}
+
+.right {
+  @include d-flex($jc: flex-end, $ai: flex-end);
+
+  > div {
+    @include d-flex($g: 24px);
+
+    > a {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      transform: translate(0, 0);
+      transition: transform 0.25s ease-in-out;
+
+      &:hover {
+        transform: translate(0, -16px);
+      }
+
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@keyframes link-animation {
+  0% {
+    left: 0;
+    width: 2%;
+    right: unset;
+    opacity: 0;
+  }
+
+  50% {
+    left: 0;
+    width: 100%;
+    right: 0;
+    opacity: 1;
+  }
+
+  100% {
+    left: unset;
+    width: 50%;
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 430px) {
+  footer {
+    padding-top: 16px;
+
+    .link {
+      align-self: center;
+    }
+  }
+
+  .container {
+    gap: 8px;
+
+    > div {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+
+  .left {
+    justify-content: center;
+    align-items: center;
+
+    a {
+      align-self: center;
+    }
+  }
+}

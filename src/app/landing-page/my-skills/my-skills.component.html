@@ -1,0 +1,18 @@
+<section>
+  <div class="container">
+    <h1>Skills</h1>
+    <div class="skill-container">
+      @for (skill of skills; track skill; let i = $index) {
+      <div class="single-skill">
+        <img
+          [ngClass]="{ animate: skills[i].animate }"
+          src="assets/icons/{{ skill.path }}"
+          alt=""
+          class="icon"
+        />
+        <span>{{ skill.name }}</span>
+      </div>
+      }
+    </div>
+  </div>
+</section>

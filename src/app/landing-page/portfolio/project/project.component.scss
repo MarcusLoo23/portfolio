@@ -1,0 +1,219 @@
+@import "../../../../styles.scss";
+
+section {
+  @include d-flex();
+  @media (max-width: 850px) {
+    overflow: hidden;
+  }
+  .container {
+    @include d-flex($g: 48px, $jc: space-between);
+    width: 100%;
+    &:hover .frame {
+      opacity: 1;
+    }
+    &:hover .frame img {
+      transform: rotate(-135deg);
+    }
+    @media (max-width: 850px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.left {
+  filter: grayscale(1);
+  width: 50%;
+  max-width: 500px;
+  align-self: flex-end;
+  position: relative;
+  @media (max-width: 850px) {
+    width: 90%;
+    max-width: 90%;
+    align-self: center;
+  }
+  .preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @media (max-width: 850px) {
+      width: 95%;
+    }
+    @media (max-width: 505px) {
+      width: 90%;
+    }
+  }
+  .frame {
+    display: flex;
+    align-items: center;
+    border: 4px solid black;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.225s ease-in-out;
+    @media (max-width: 850px) {
+      width: 95%;
+    }
+    @media (max-width: 505px) {
+      width: 90%;
+    }
+    > img {
+      position: absolute;
+      right: -34px;
+      width: 64px;
+      height: 64px;
+      transition: transform 0.25s ease-in-out;
+    }
+  }
+}
+
+.mirror {
+  transform: scale(-1, 1);
+}
+
+[data-aos="color-animation"] {
+  filter: grayscale(1);
+  transition-property: filter;
+
+  &.aos-animate {
+    filter: grayscale(0);
+  }
+}
+
+.right {
+  width: 50%;
+  @include d-flex($fd: column);
+  @media (max-width: 850px) {
+    width: 100%;
+  }
+  span {
+    font-family: "Syne", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    align-self: flex-end;
+  }
+
+  .description {
+    @include d-flex($fd: column, $ai: flex-start, $g: 16px);
+    h2 {
+      font-family: "Syne", sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      @media (max-width: 1100px) {
+        font-size: 40px;
+      }
+      @media (max-width: 580px) {
+        font-size: 32px;
+      }
+    }
+    .technologies {
+      color: #5987ff;
+      font-size: 23px;
+      font-family: "overpass", sans-serif;
+      @media (max-width: 1100px) {
+        font-size: 20px;
+      }
+    }
+    p {
+      font-family: "overpass", sans-serif;
+      font-size: 16px;
+    }
+    .buttons {
+      @include d-flex($g: 24px);
+      @media (max-width: 850px) {
+        align-self: center;
+      }
+      .btn {
+        @media (max-width: 1150px) {
+          padding: 20px 32px;
+          &:hover {
+            padding: 20px 40px;
+          }
+          &:active {
+            padding: 20px 40px;
+          }
+        }
+        @media (max-width: 580px) {
+          padding: 16px 24px;
+          &:hover {
+            padding: 16px 32px;
+          }
+          &:active {
+            padding: 16px 32px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.row-reverse {
+  flex-direction: row-reverse !important;
+  @media (max-width: 850px) {
+    flex-direction: column !important;
+  }
+}
+
+@media (max-width: 430px) {
+  section {
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    .container {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  .left {
+    width: 85%;
+    align-self: center;
+    .preview-img {
+      height: auto;
+    }
+    .frame {
+      top: 4px;
+      left: 4px;
+      border-width: 2px;
+      > img {
+        width: 40px;
+        height: 40px;
+        right: -21px;
+      }
+    }
+  }
+
+  .right {
+    width: 80%;
+    span {
+      font-size: 23px;
+    }
+    .description {
+      h2 {
+        font-size: 28px;
+      }
+      .buttons {
+        gap: 4px;
+        width: 100%;
+        justify-content: space-around;
+        > a {
+          .btn {
+            padding: 12px 8px;
+            font-size: 18px;
+
+            &:hover {
+              padding: 12px 12px;
+              font-weight: 400;
+            }
+            &:active {
+              padding: 12px 12px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
+}
